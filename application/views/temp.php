@@ -20,16 +20,25 @@
   <script src="assets/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
-<body>
+<body id="">
 
-  <div id="site">
-    <header>
-		
+  <div id="site" class="group">
+    <header class="group">
+        <h1>
+            <a href="" >logo</a>
+        </h1>
+        <nav class="group">
+            
+        </nav>
     </header>
-    <div id="main" role="main">
-
+    <div id="main" role="main" class="group">
+        <section class="group"> 
+        
+        </section>
+        <aside class="group">            
+        </aside>
     </div>
-    <footer>
+    <footer class="group">
 
     </footer>
   </div> <!--! end of #container -->

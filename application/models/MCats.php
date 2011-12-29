@@ -1,0 +1,53 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of MCats
+ *
+ * @author jeromeamos
+ */
+class MCats extends CI_Model{
+    
+    public function __construct() {
+        parent::__construct();
+    }
+    
+    
+    public function getCatategory($id){
+        $data = array();
+        $options = array('id'=> $id);
+        
+        $q = $this->db->get_where('categories', $options,1);
+        
+        if ($q->num_rows() > 0){
+            $data = $q->row_array();
+        }
+        $q->free_result();
+        return $data;
+        
+    }
+    
+    
+     public function getAllCatategories(){
+        $data = array();
+        
+        
+        $q = $this->db->ge('categories');
+        
+        if ($q->num_rows() > 0){
+            foreach ($q->result_array() as $key) {
+                $data[] = $key;
+            }
+            
+        }
+        $q->free_result();
+        return $data;
+        
+    }
+}
+
+?>

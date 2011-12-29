@@ -35,4 +35,11 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
 
+# addvideo types
+AddType video/mp4 mp4 m4v
+AddType video/ogg ogv
+AddType video/webm webm
+AddType audio/mp4 m4a
+AddType audio/ogg ogg oga
+
 </IfModule>
