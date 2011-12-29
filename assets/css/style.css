@@ -71,7 +71,7 @@ td { vertical-align: top; }
 =============================================================================
  * =========================|Author: jerome amos  ==========================*
  ==========================================================================*/
-
+#site{width:1140px;margin: 10px auto;padding:10px;}
 
 
 
@@ -105,6 +105,16 @@ td { vertical-align: top; }
 .group:before,.group:after {content:""; display:table;}
 .group:after {clear:both;}
 .group {zoom:1; /* For IE 6/7 (trigger hasLayout) */}
+code {
+		font-family: Consolas, Monaco, Courier New, Courier, monospace;
+		font-size: 12px;
+		background-color: #f9f9f9;
+		border: 1px solid #D0D0D0;
+		color: #002166;
+		display: block;
+		margin: 14px 0 14px 0;
+		padding: 12px 10px 12px 10px;
+	}
 
 /* ==========================================================================
 =============================================================================
