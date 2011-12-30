@@ -7,9 +7,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title></title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <title><?php echo $title; ?></title>
+  <meta name="description" content="<?php echo $title; ?>">
+  <meta name="author" content="jerome amos">
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -20,52 +20,27 @@
   <script src="assets/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
-<body id="">
+<body id="<?php echo $title; ?>">
 
   <div id="site" class="group">
     <header class="group">
-        <h1>
-            <a href="" >logo</a>
-        </h1>
-        <nav class="group">
-            
-        </nav>
+       <?php $this->load->view('inc/header');?>
     </header>
-    <div id="main" role="main" class="group">
-        <section class="group"> 
-        
+    <div id="mainContent" role="main" class="group">
+        <aside id="catsnav" class="group">
+            <?php $this->load->view('inc/catsnav');?>
+        </aside>
+        <section id="mainCopy"class="group"> 
+            <?php $this->load->view('pages/'.$main);?>
         </section>
-        <aside class="group">            
+        <aside id="cats" class="group">
+            <?php $this->load->view('inc/cats');?>
         </aside>
     </div>
     <footer class="group">
-
+       <?php $this->load->view('inc/footer');?>
     </footer>
   </div> <!--! end of #container -->
-
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="assets/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-
-
-  <!-- scripts concatenated and minified via ant build script-->
-  <script defer src="assets/js/plugins.js"></script>
-  <script defer src="assets/js/script.js"></script>
-  <!-- end scripts-->
-
-
-  <script> // Change UA-XXXXX-X to be your site's ID
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>
-
-
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
-  
+ <?php $this->load->view('inc/sitestuff');?>
 </body>
 </html>

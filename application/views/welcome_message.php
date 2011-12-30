@@ -7,9 +7,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Welcome to CodeIgniter</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <title><?php echo $title; ?></title>
+  <meta name="description" content="<?php echo $sitedescr; ?>">
+  <meta name="author" content="jerome amos">
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -20,60 +20,27 @@
   <script src="assets/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
-<body id="">
+<body id="<?php echo $title; ?>">
 
   <div id="site" class="group">
     <header class="group">
-        <h1>Welcome to CodeIgniter!!!</h1>
-        <nav class="group">
-            <ul>
-                <li><a href="user_guide/">User Guide</a></li>
-            </ul>  
-        </nav>
+       <?php $this->load->view('inc/header');?>
     </header>
-    <div id="main" role="main" class="group">
-        <section class="group"> 
-
-	
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>	
-</section>
-        <aside class="group">            
+    <div id="mainContent" role="main" class="group">
+        <aside id="catsnav" class="group">
+            <?php $this->load->view('inc/catsnav');?>
+        </aside>
+        <section id="mainCopy"class="group"> 
+            <?php $this->load->view('pages/'.$main);?>
+        </section>
+        <aside id="cats" class="group">
+            <?php $this->load->view('inc/cats');?>
         </aside>
     </div>
     <footer class="group">
-            <small>Page rendered in <strong>{elapsed_time}</strong> seconds</small>
+       <?php $this->load->view('inc/footer');?>
     </footer>
   </div> <!--! end of #container -->
-
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="assets/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-
-
-  <!-- scripts concatenated and minified via ant build script-->
-  <script defer src="assets/js/plugins.js"></script>
-  <script defer src="assets/js/script.js"></script>
-  <!-- end scripts-->
-
-
-  <script> // Change UA-XXXXX-X to be your site's ID
-    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-    Modernizr.load({
-      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-    });
-  </script>
-
-
-  <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->
-  
+ <?php $this->load->view('inc/sitestuff');?>
 </body>
 </html>

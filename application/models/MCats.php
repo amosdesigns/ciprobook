@@ -17,6 +17,23 @@ class MCats extends CI_Model{
     }
     
     
+     public function getCatategoryNav(){
+        $data = array();
+       
+        $this->db->where("status","active");
+        $q = $this->db->get('categories');
+        
+        if ($q->num_rows() > 0){
+             foreach ($q->result_array() as $key) {
+                $data[$key['id']] = $key['name'];
+            }
+            
+        }
+        $q->free_result();
+        return $data;
+        
+    }
+    
     public function getCatategory($id){
         $data = array();
         $options = array('id'=> $id);
@@ -32,11 +49,11 @@ class MCats extends CI_Model{
     }
     
     
-     public function getAllCatategories(){
+     public function getAllCategories(){
         $data = array();
         
         
-        $q = $this->db->ge('categories');
+        $q = $this->db->get('categories');
         
         if ($q->num_rows() > 0){
             foreach ($q->result_array() as $key) {
@@ -44,6 +61,9 @@ class MCats extends CI_Model{
             }
             
         }
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
         $q->free_result();
         return $data;
         
