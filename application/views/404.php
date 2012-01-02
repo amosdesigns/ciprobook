@@ -1,8 +1,15 @@
+<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+?>
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Page Not Found :(</title> 
+  <title>CIPROBOOK :: Page Not Found :(</title> 
   <style>
 	  body { text-align: center;}
 	  h1 { font-size: 50px; text-align: center }
@@ -18,7 +25,7 @@
 </head>
 <body>
      <article>
-	  <h1>Not found <span frown>:(</span></h1>
+	  <h1>CIPROBOOK :: Not found <span frown>:(</span></h1>
 	   <div>
 	       <p>Sorry, but the page you were trying to view does not exist.</p>
 	       <p>It looks like this was the result of either:</p>
