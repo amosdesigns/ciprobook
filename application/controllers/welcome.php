@@ -16,6 +16,9 @@ class Welcome extends CI_Controller {
             $data['sitedescr'] = "home";
             $data['title'] = $data['title']." :: home";
             $data['navlist'] = $this->MCats->getCatategoryNav();
+            $data['mainf'] = $this->MProducts->getMainFeature();
+            $skip = $data['mainf']['id'];
+            $data['sidef'] = $this->MProducts->getRandomProducts(2, $skip);
             $data['main'] = "home";
             $this->load->view('welcome_message',$data);
 	}

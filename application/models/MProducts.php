@@ -15,6 +15,8 @@ class MProducts extends CI_Model{
     public function __construct() {
         parent::__construct();
     }
+    
+    
      public function getRandomProducts($limit, $skip){
        
          $data = array();
@@ -29,37 +31,42 @@ class MProducts extends CI_Model{
         $this->db->order_by("category_id",'asc');
         $this->db->limit(100);
         
-        $q = $this->db->ge('products');
+        $q = $this->db->get('products');
         
         if ($q->num_rows() > 0){
             foreach ($q->result_array() as $key) {
             $temp[$key['category_id']] = array(
-                "id" => $key['id'],
-                "name" => $key['name'],
-                "thumbnail" => $key['thumbnail']
-            );
+                                            "id" => $key['id'],
+                                            "name" => $key['name'],
+                                            "thumbnail" => $key['thumbnail']
+                                            );
             }
         }
+        
+        
         shuffle($temp);
-        if(count($temp)){
-           for($i=0;$i>$limit;$i++) {
-             $data[] = shift($temp);  
+        
+        if (count($temp)){
+           for($i=1; $i <= $limit; $i++) {
+                        $data[] = array_shift($temp);  
            }
         }
+        
+        
         $q->free_result();
         return $data;
         
     }
    
-     public function getMainFeature($id){
+     public function getMainFeature(){
         $data = array();
         $this->db->select("id,name,shortdesc,image");
-        $this->db->where('feature','true');
+        $this->db->where('featured','true');
         $this->db->where('status','active');
         $this->db->order_by("rand()");
         $this->db->limit(1);
         
-        $q = $this->db->ge('products');
+        $q = $this->db->get('products');
         
         if ($q->num_rows() > 0){
             foreach ($q->result_array() as $key) {
