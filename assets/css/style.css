@@ -71,12 +71,15 @@ td { vertical-align: top; }
 =============================================================================
  * =========================|Author: jerome amos  ==========================*
  ==========================================================================*/
-#site{width:1140px;margin: 10px auto;padding:10px;}
+html{background-image: url(/assets/img/bigbg.png);background-position: 0px 0px;background-repeat: repeat;}
+#site{width:960px;margin: 0px auto;padding:20px;background-color: rgba(255,255,255,.35); }
 
-section#mainCopy,aside{display:block;float:left;}
-#catsnav{width:190px;}
-#cats{width:190px;}
-#mainCopy{width:760px;}
+section#mainCopy,aside,header,footer{display:block;float:left;}
+#catsnav{width:130px;}
+#cats{width:190px;text-align: center;}
+#cats figure{margin:20px;}
+#mainCopy{width:600px;}
+header, footer{width:100%;padding:10px;}
 header h1,header nav{display:block; float:left;padding: 0px;margin:0px;}
 header #thesearch{display:block; float:right;}
 header nav a{display:block;font-size: 20px;line-height: 2;text-decoration: none;padding-top:20px;color:#444;text-transform: uppercase;}
@@ -159,7 +162,7 @@ a.buy.btn {background-color: green;margin-left:20px;}
 	zoom: 1; /* ie7 hack for display:inline-block */
 	*display: inline;
 	border: solid 1px #d2d2d2;
-	padding: 3px 5px;
+	padding: 8px 5px;
 	
 	-webkit-border-radius: 2em;
 	-moz-border-radius: 2em;
@@ -175,6 +178,7 @@ a.buy.btn {background-color: green;margin-left:20px;}
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie7 */
 	-ms-filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* ie8 */
 }
+
 .searchform input {
 	font: normal 12px/100% Arial, Helvetica, sans-serif;
 }

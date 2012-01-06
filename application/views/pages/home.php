@@ -17,7 +17,7 @@
                 echo anchor('welcome/product/'.$mainf['id'],'see details',
                         array("class"=>'btn'));
                 
-                 echo anchor('welcome/cart/'.$mainf['id'],'buy now',
+                echo anchor('welcome/cart/'.$mainf['id'],'buy now',
                         array("class"=>'btn buy'));
                 
                 

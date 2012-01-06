@@ -4,6 +4,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+/**
+* @property CI_DB_active_record $db
+* @property CI_DB_forge $dbforge
+* @property CI_Config $config
+* @property CI_Loader $load
+* @property CI_Session $session
+*/
 
 /**
  * Description of MProducts
@@ -16,6 +23,27 @@ class MProducts extends CI_Model{
         parent::__construct();
     }
     
+    
+    public function getProductsByCategory($catid){
+        $data = array();
+        
+        $this->db->select("id,name,shortdesc,thumbnail");
+        $this->db->where('category_id',$catid);
+        $this->db->where('status','active');
+        $this->db->order_by("name",'asc');
+        
+        $q = $this->db->get('products');
+        
+        if ($q->num_rows() > 0){
+            foreach ($q->result_array() as $key){
+            $data[] = $key;
+            }
+        }
+        
+        $q->free_result();
+        return $data;
+        
+    }
     
      public function getRandomProducts($limit, $skip){
        
