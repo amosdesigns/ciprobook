@@ -14,13 +14,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href='<?php echo base_url("assets/css/style.css"); ?>'>
   <!-- end CSS-->
 
-  <script src="assets/js/libs/modernizr-2.0.6.min.js"></script>
+  <script src='<?php echo base_url("assets/js/libs/modernizr-2.0.6.min.js"); ?>'></script>
 </head>
 
-<body id="<?php echo $title; ?>">
+<body id="c3pg">
 
   <div id="site" class="group">
     <header class="group">

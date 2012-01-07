@@ -20,7 +20,7 @@
   <script src='<?php echo base_url("assets/js/libs/modernizr-2.0.6.min.js"); ?>'></script>
 </head>
 
-<body id="c3pg">
+<body id="c2pg">
 
   <div id="site" class="group">
     <header class="group">
@@ -33,9 +33,6 @@
         <section id="mainCopy"class="group"> 
             <?php $this->load->view('pages/'.$main);?>
         </section>
-        <aside id="cats" class="group">
-            <?php $this->load->view('inc/cats');?>
-        </aside>
     </div>
     <footer class="group">
        <?php $this->load->view('inc/footer');?>

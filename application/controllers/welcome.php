@@ -66,11 +66,11 @@ class Welcome extends CI_Controller {
 	}
         
         
-        public function cat()
+        public function cat($id)
 	{
-		$cat = $this->MCats->getCategory($this->uri->segment(3));
+		$cat = $this->MCats->getCategory($id);
                 
-                if (!count($cat)) {
+                if (! count($cat)) {
                     redirect('welcome/index', 'refresh');
                 }
                 
@@ -78,15 +78,22 @@ class Welcome extends CI_Controller {
                 $data['sitedescr'] = $cat['name'];
                 
                 if ($cat['parentid'] < 1){
+                    
                     //show other categories
+                    $data['listing'] = $this->MCats->getSubCategories($id);
+                   
+                    $data['level'] = 1;
                 } else {
-                   //show products    
+                   //show products
+                    echo"products....";
+                    $data['listing'] = $this->MProducts->getProductsByCategory($id);
+                    $data['level'] = 2;
                 }
                 
                 $data['category'] = $cat;
                 $data['main'] = 'category';
                 $data['navlist'] = $this->MCats->getCategoriesNav();
-                $this->load->view('welcome_message', $data);
+                $this->load->view('cats', $data);
 	}
         
         public function subcat()

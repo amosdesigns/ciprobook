@@ -23,6 +23,35 @@ class MProducts extends CI_Model{
         parent::__construct();
     }
     
+    public function getProductsByGroup($limit,$group,$skip){
+        $data = array();
+        
+        if($limit ===0){
+            $limit = 3;
+        }
+        
+        
+        $this->db->select("id,name,shortdesc,thumbnail");
+        
+        $this->db->where('grouping',$group);
+        $this->db->where('status','active');
+        $this->db->where('id !=',$skip);
+        $this->db->order_by("name",'asc');
+        $this->db->limit($limit);
+        
+        $q = $this->db->get('products');
+        
+        if ($q->num_rows() > 0){
+            foreach ($q->result_array() as $key){
+            $data[] = $key;
+            }
+        }
+        
+        $q->free_result();
+        return $data;
+        
+    }
+    
     
     public function getProductsByCategory($catid){
         $data = array();
@@ -45,7 +74,7 @@ class MProducts extends CI_Model{
         
     }
     
-     public function getRandomProducts($limit, $skip){
+    public function getRandomProducts($limit, $skip){
        
          $data = array();
          $temp = array();
@@ -86,7 +115,7 @@ class MProducts extends CI_Model{
         
     }
    
-     public function getMainFeature(){
+    public function getMainFeature(){
         $data = array();
         $this->db->select("id,name,shortdesc,image");
         $this->db->where('featured','true');
@@ -127,7 +156,7 @@ class MProducts extends CI_Model{
     }
     
     
-     public function getAllProducts(){
+    public function getAllProducts(){
         $data = array();
         
         

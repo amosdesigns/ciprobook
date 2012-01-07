@@ -26,6 +26,8 @@ class MCats extends CI_Model{
     
      public function getSubCategories($catid){
             $data = array();
+           
+            $this->db->select('id,name,shortdesc');
             $this->db->where("status","active");
             $this->db->where("parentid ",$catid);
             $this->db->order_by('name', 'asc');
@@ -33,13 +35,15 @@ class MCats extends CI_Model{
 
             if ($q->num_rows() > 0){
                 foreach ($q->result_array() as $key) {
-                    $q2 = $this->db->query("select thumbnail as src from products where category_id =".$key['id']."order by rand90 limit 1");
+                    
+                    $q2 = $this->db->query("SELECT thumbnail AS src FROM products WHERE category_id =".$key['id']." ORDER BY RAND() LIMIT 1");
+                    
                     if($q2->num_rows() > 0){
-                        $thumb = $q2->row_array();
-                        $THUMB = $thumb['src'];
-                    }else {
-                        $THUMB ="";
-                    }
+                                $thumb = $q2->row_array();
+                                $THUMB = $thumb['src'];
+                            } else {
+                                $THUMB ="";
+                            }
                     $q2->free_result();
                     
                     $data[] = array(
