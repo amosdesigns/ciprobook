@@ -96,23 +96,37 @@ class Welcome extends CI_Controller {
                 $this->load->view('cats', $data);
 	}
         
+        public function product($id)
+	{
+	$product = $this->MProducts->getProduct($id);
+        
+        if(! count($product)){
+            redirect('welcome/index','refresh');
+        }
+        
+        $data['grouplist'] = $this->MProducts->getProductsByGroup(3, $product['grouping'],$id);
+        $data['product'] = $product;
+        $data['title'] = "Welcome to Claudia's Kids :: ".$product['name'];
+        $data['sitedescr'] = "products";
+        $data['main'] = 'home';
+        $data['navlist'] = $this->MCats->getCategoriesNav();
+        $data['mainf'] = $this->MProducts->getMainFeature();
+        $skip = $data['mainf']['id'];
+        $data['sidef'] = $this->MProducts->getRandomProducts(2, $skip);
+        $this->load->view('welcome_message', $data);
+        
+	}
+        
         public function subcat()
 	{
 		
 	}
-        
-        
-        public function product()
-	{
-		
-	}
-        
+   
         public function cart()
 	{
 		
 	}
-        
-        
+          
         public function search()
 	{
 		

@@ -10,6 +10,8 @@
 * @property CI_Config $config
 * @property CI_Loader $load
 * @property CI_Session $session
+* @property MCats $cat
+* @property MProducts $products
 */
 
 /**
@@ -51,7 +53,6 @@ class MProducts extends CI_Model{
         return $data;
         
     }
-    
     
     public function getProductsByCategory($catid){
         $data = array();
@@ -139,8 +140,7 @@ class MProducts extends CI_Model{
         return $data;
         
     }
-    
-    
+  
     public function getProduct($id){
         $data = array();
         $options = array('id'=> $id);
@@ -154,8 +154,7 @@ class MProducts extends CI_Model{
         return $data;
         
     }
-    
-    
+       
     public function getAllProducts(){
         $data = array();
         
